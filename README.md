@@ -67,3 +67,26 @@ format on save settings.json
 ```
   "editor.formatOnSave": true
 ```
+
+more option
+
+```
+{
+  "workbench.colorTheme": "Default Light+",
+  "editor.minimap.enabled": false,
+  "remote.SSH.connectTimeout": 60,
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.formatOnType": true,
+  "editor.formatOnPaste": true,
+  "html.format.wrapLineLength": 80,
+  "eslint.format.enable": true,
+  "editor.tabSize": 2
+}
+
+```
