@@ -37,7 +37,7 @@ export const Footer = () => {
           gap={tokens.space.small}
           alignItems="baseline"
           color={tokens.colors.font.tertiary}
-          href="https://aws.entest.io/"
+          href="https://www.linkedin.com/in/minhhaitran/"
           isExternal={true}
         >
           <IoLogoLinkedin></IoLogoLinkedin>
