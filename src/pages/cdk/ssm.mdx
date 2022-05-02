@@ -16,7 +16,7 @@ AWS system manager (SSM) enables vscode ssh remoting to an EC2 in a private subn
 
 ![aws_devops-Expriment drawio](https://user-images.githubusercontent.com/20411077/166241577-87e23a4b-5e98-443d-b115-ff9c271fa603.png)
 
-## CDK Stack
+## CDK stack
 
 create a VPC with a S3 VPC endpoint
 
@@ -95,7 +95,7 @@ const ec2 = new aws_ec2.Instance(this, 'Ec2ConnectVpcEndpointS3', {
 });
 ```
 
-## Setup a connection to private EC2 via SSM
+## Install ssm plugin for local
 
 [follow this to](https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-working-with-install-plugin.html) install ssm plugin for the local machine
 
@@ -105,7 +105,7 @@ start a ssm session from the local machine
 aws ssm start-session --target "EC2-INSTANCE-ID"
 ```
 
-## Setup vscode ssh remote to the EC2
+## Configure ssh for local
 
 [follow this to ](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh) install ssh remote extension for vscode
 
@@ -151,7 +151,7 @@ aws ssm start-session --target $HOST \
 
 vscode will create a ssh connection to the EC2 via the **ProxyCommand** script which creates a SSM session under the hood. This is the way [vscode ssh remote with cloud9 works](https://aws.amazon.com/blogs/architecture/field-notes-use-aws-cloud9-to-power-your-visual-studio-code-ide/)
 
-## Configure vscode ssh
+## Configure vscode
 
 keep alive settings.json
 
