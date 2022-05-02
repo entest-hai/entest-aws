@@ -1,10 +1,7 @@
 const withMDX = require('@next/mdx')({
-
   extension: /\.mdx?$/,
   options: {
-    remarkPlugins: [],
-    rehypePlugins: [
-      require('rehype-slug'),
+    remarkPlugins: [
       require('remark-code-import'),
       require('remark-gfm'),
       require('remark-mdx-images'),
@@ -14,6 +11,11 @@ const withMDX = require('@next/mdx')({
           repository: 'aws-amplify/amplify-ui',
         },
       ],
+    ],
+    rehypePlugins: [
+      require('mdx-prism'),
+      require('rehype-slug'),
+      require('rehype-autolink-headings'),
     ],
     // If you use `MDXProvider`, uncomment the following line.
     providerImportSource: "@mdx-js/react",
