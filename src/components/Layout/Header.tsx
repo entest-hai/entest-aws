@@ -58,21 +58,21 @@ const NavLink = ({
 
 const Nav = (props) => (
   <Flex as="nav" className="docs-nav" alignItems="center" gap="0" grow="1">
-    <NavLink {...props} href="/getting-started/installation">
-      Getting started
+    <NavLink {...props} href="/">
+      CDK
     </NavLink>
-    <NavLink {...props} href="/components">
-      Components
+    <NavLink {...props} href="/">
+      Amplify
     </NavLink>
-    <NavLink {...props} href="/theming">
-      Theming
+    <NavLink {...props} href="/">
+      Notes
     </NavLink>
-    <NavLink {...props} href="/guides">
-      Guides
+    <NavLink {...props} href="/">
+      Certifications
     </NavLink>
     <Divider orientation="vertical" />
-    <NavLink {...props} isExternal href="https://docs.amplify.aws">
-      Amplify docs <MdOpenInNew />
+    <NavLink {...props} isExternal href="https://aws.entest.io/about">
+      About Me <MdOpenInNew />
     </NavLink>
   </Flex>
 );

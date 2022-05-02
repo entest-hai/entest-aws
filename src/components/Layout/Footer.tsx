@@ -1,16 +1,15 @@
 import {
   Icon,
   Link,
-  Text,
   Flex,
   View,
   useTheme,
   Button,
 } from '@aws-amplify/ui-react';
 
-//import * as links from './../data/links';
-//import * as icons from './../data/icon';
+import * as icons from './../../data/icon';
 import { Logo } from './../Logo';
+import { IoLogoTwitter, IoLogoGithub, IoLogoLinkedin } from 'react-icons/io5';
 
 export const Footer = () => {
   const { tokens } = useTheme();
@@ -26,7 +25,10 @@ export const Footer = () => {
           gap={tokens.space.small}
           alignItems="baseline"
           color={tokens.colors.font.tertiary}
+          href="https://github.com/entest-hai"
+          isExternal={true}
         >
+          <Icon ariaLabel="Github" pathData={icons.GITHUB} />
           Github
         </Button>
         <Button
@@ -35,8 +37,11 @@ export const Footer = () => {
           gap={tokens.space.small}
           alignItems="baseline"
           color={tokens.colors.font.tertiary}
+          href="https://aws.entest.io/"
+          isExternal={true}
         >
-          Discord
+          <IoLogoLinkedin></IoLogoLinkedin>
+          Linkedin
         </Button>
       </View>
       <Flex direction="row">
