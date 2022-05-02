@@ -13,8 +13,8 @@ import { SiW3C, SiReact } from 'react-icons/si';
 import { Sidebar } from './SecondaryNav';
 import { TableOfContents } from '../TableOfContents';
 import { Footer } from './Footer';
-//import { GITHUB_REPO_FILE } from '@/data/links';
-//import { DesignTokenIcon } from '@/components/DesignTokenIcon';
+import { GITHUB_REPO_FILE } from '@/data/links';
+import { DesignTokenIcon } from '@/components/DesignTokenIcon';
 
 export default function Page({
   children,
@@ -36,7 +36,20 @@ export default function Page({
 
   // TODO: is there a better way to do this?
   React.useLayoutEffect(() => {
-    const updateHeaders = debounce(() => {});
+    const updateHeaders = debounce(() => {
+      setHeadings(
+        [
+          ...document
+            .querySelector('#__next')
+            .querySelectorAll('h2[id],h3[id]'),
+        ].map((node: HTMLElement) => ({
+          id: node.id,
+          label: node.innerText,
+          level: node.nodeName,
+          top: node.offsetTop,
+        }))
+      );
+    });
 
     const observer = new MutationObserver(updateHeaders);
 
@@ -47,6 +60,20 @@ export default function Page({
 
     return () => observer.disconnect();
   }, [children]);
+
+  React.useEffect(() => {
+    const scrollToHash = () => {
+      const { hash } = window.location;
+
+      if (hash) {
+        document.querySelector(hash)?.scrollIntoView({ behavior: 'smooth' });
+      }
+    };
+    window.addEventListener('load', scrollToHash);
+
+    return () => window.removeEventListener('load', scrollToHash);
+  }, []);
+
   return (
     <div className="docs-main">
       <Sidebar />
@@ -76,12 +103,24 @@ export default function Page({
                 </Link>
               ) : null}
               {themeSource ? (
-                <Link className="docs-component-link" href={'/'} isExternal>
+                <Link
+                  className="docs-component-link"
+                  href={`${GITHUB_REPO_FILE}${themeSource}`}
+                  isExternal
+                >
+                  <DesignTokenIcon
+                    ariaLabel=""
+                    marginInlineEnd={tokens.space.xs}
+                  />
                   Theme source
                 </Link>
               ) : null}
               {reactSource ? (
-                <Link className="docs-component-link" href={'/'} isExternal>
+                <Link
+                  className="docs-component-link"
+                  href={`${GITHUB_REPO_FILE}${reactSource}`}
+                  isExternal
+                >
                   <Icon
                     ariaLabel=""
                     as={SiReact}

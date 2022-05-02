@@ -18,51 +18,38 @@ import { Footer } from './Footer';
 //import { DesignTokenIcon } from '@/components/DesignTokenIcon';
 
 const canUseDOM = typeof window !== 'undefined';
-const useIsomorphicLayoutEffect = canUseDOM ? React.useLayoutEffect : React.useEffect;
+const useIsomorphicLayoutEffect = canUseDOM
+  ? React.useLayoutEffect
+  : React.useEffect;
 
 const testHeadings = [
   {
     id: '1',
     label: 'Guides',
     level: 1,
-    top: 10
+    top: 10,
   },
   {
     id: '2',
     label: 'OverView',
     level: 1,
-    top: 20
+    top: 20,
   },
   {
     id: '3',
     label: 'Contributing',
     level: 1,
-    top: 30
-  }
-]
+    top: 30,
+  },
+];
 
-
-
-export const MyLayout = ({
-  name
-}: {
-  name: any
-}) => {
-  return (
-    <Heading>
-      This is a MDX layout {name}
-    </Heading>
-  );
-}
-
+export const MyLayout = ({ name }: { name: any }) => {
+  return <Heading>This is a MDX layout {name}</Heading>;
+};
 
 export const MyMdx = () => {
-  return (
-    <Heading>
-      This is MDX
-    </Heading>
-  );
-}
+  return <Heading>This is MDX</Heading>;
+};
 
 export const MyLayoutTest = ({
   children,
@@ -84,23 +71,23 @@ export const MyLayoutTest = ({
 
   // TODO: is there a better way to do this?
   React.useEffect(() => {
-
     // const updateHeaders = debounce(() => {
 
-      console.log('query ', document.querySelector('#__next').querySelectorAll('h2'));
+    console.log(
+      'query ',
+      document.querySelector('#__next').querySelectorAll('h2')
+    );
 
-      setHeadings(
-        [
-          ...document
-            .querySelector('#__next')
-            .querySelectorAll('h2'),
-        ].map((node: HTMLElement) => ({
+    setHeadings(
+      [...document.querySelector('#__next').querySelectorAll('h2')].map(
+        (node: HTMLElement) => ({
           id: node.id,
           label: node.innerText,
           level: node.nodeName,
           top: node.offsetTop,
-        }))
-      );
+        })
+      )
+    );
     // });
 
     // const observer = new MutationObserver(updateHeaders);
@@ -111,9 +98,7 @@ export const MyLayoutTest = ({
     // });
 
     // return () => observer.disconnect();
-
-  }, [])
-
+  }, []);
 
   // useIsomorphicLayoutEffect(() => {
 
@@ -144,7 +129,6 @@ export const MyLayoutTest = ({
 
   //   return () => observer.disconnect();
   // }, []);
-
 
   return (
     <div className="docs-main">
@@ -202,4 +186,4 @@ export const MyLayoutTest = ({
       )}
     </div>
   );
-}
+};

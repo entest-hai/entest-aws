@@ -1,9 +1,12 @@
-import { AmplifyProvider, ColorMode } from '@aws-amplify/ui-react';
+import { AmplifyProvider, ColorMode, Heading } from '@aws-amplify/ui-react';
 import * as React from 'react';
 import { useRouter } from 'next/dist/client/router';
 import { myTheme } from '../theme';
 import '../styles/index.scss';
 import { Header } from '../components/Layout/Header';
+import { MDXProvider } from '@mdx-js/react';
+
+const components = {};
 
 function App({ Component, pageProps }) {
   const router = useRouter();
@@ -14,12 +17,18 @@ function App({ Component, pageProps }) {
   return (
     <>
       <AmplifyProvider theme={myTheme} colorMode={colorMode as ColorMode}>
-        <Header colorMode={colorMode} setColorMode={setColorMode} platform={platform}></Header>
-        <Component
-          platform={platform}
+        <Header
           colorMode={colorMode}
           setColorMode={setColorMode}
-        ></Component>
+          platform={platform}
+        ></Header>
+        <MDXProvider components={components}>
+          <Component
+            platform={platform}
+            colorMode={colorMode}
+            setColorMode={setColorMode}
+          ></Component>
+        </MDXProvider>
       </AmplifyProvider>
     </>
   );
