@@ -1,23 +1,20 @@
+export const meta = {
+  title: 'Vscode remote to an private EC2',
+};
+
 import { MyLayoutTest } from './../../components/Layout/MyLayout';
 import { Fragment } from './../../components/Fragment';
 
-## Vscode remote to a private EC2 instance via ssm
-
-With AWS system manager (SSM), it is possible to setup vscode ssh remote to a EC2 in a private subnet, and without open 22 port. In this note,
+AWS system manager (SSM) enables vscode ssh remoting to an EC2 in a private subnet, or a public EC2 without opening port 22.
 
 - Setup a connection to a private EC2 via SSM
-- Setup vscode ssh remote to the EC2 by [**proxyCommand**](https://github.com/aws-samples/cloud9-to-power-vscode-blog/blob/main/scripts/ssm-proxy.sh)
+- CloudWatch to stop EC2 after 30 minutes idle
+- Setup vscode ssh remote to the EC2 via [**proxyCommand**](https://github.com/aws-samples/cloud9-to-power-vscode-blog/blob/main/scripts/ssm-proxy.sh)
 - Create the infrastructure by a CDK stack
-
-**Reference**
-
-- [vscode cloud9 setup](https://aws.amazon.com/blogs/architecture/field-notes-use-aws-cloud9-to-power-your-visual-studio-code-ide/)
-- [SSM VPC endpoint](https://docs.aws.amazon.com/systems-manager/latest/userguide/setup-create-vpc.html)
-- [aws ssm start-session](https://docs.aws.amazon.com/cli/latest/reference/ssm/start-session.html)
 
 ## Architecture
 
-![aws_devops-Expriment](https://user-images.githubusercontent.com/20411077/165264406-14a840a7-af5b-47e1-a5fe-7b32018ae996.jpg)
+![aws_devops-Expriment drawio](https://user-images.githubusercontent.com/20411077/166241577-87e23a4b-5e98-443d-b115-ff9c271fa603.png)
 
 ## CDK Stack
 
@@ -88,7 +85,7 @@ const ec2 = new aws_ec2.Instance(this, 'Ec2ConnectVpcEndpointS3', {
   instanceName: 'Ec2ConnectVpcEndpointS3',
   instanceType: aws_ec2.InstanceType.of(
     aws_ec2.InstanceClass.T2,
-    aws_ec2.InstanceSize.SMALL
+    aws_ec2.InstanceSize.LARGE
   ),
   machineImage: aws_ec2.MachineImage.latestAmazonLinux(),
   securityGroup: sg,
@@ -164,8 +161,14 @@ keep alive settings.json
 }
 ```
 
-- [further customiation](https://code.visualstudio.com/blogs/2019/10/03/remote-ssh-tips-and-tricks)
+- [further customization](https://code.visualstudio.com/blogs/2019/10/03/remote-ssh-tips-and-tricks)
+
+## Reference
+
+- [vscode cloud9 setup](https://aws.amazon.com/blogs/architecture/field-notes-use-aws-cloud9-to-power-your-visual-studio-code-ide/)
+- [SSM VPC endpoint](https://docs.aws.amazon.com/systems-manager/latest/userguide/setup-create-vpc.html)
+- [aws ssm start-session](https://docs.aws.amazon.com/cli/latest/reference/ssm/start-session.html)
 
 export default ({ children }) => (
-  <MyLayoutTest children={children}></MyLayoutTest>
+  <MyLayoutTest frontmatter={meta}>{children}</MyLayoutTest>
 );

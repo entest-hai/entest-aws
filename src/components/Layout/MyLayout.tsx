@@ -75,11 +75,11 @@ export const MyLayoutTest = ({
 
     console.log(
       'query ',
-      document.querySelector('#__next').querySelectorAll('h2')
+      document.querySelector('#__next').querySelectorAll('h2[id]')
     );
 
     setHeadings(
-      [...document.querySelector('#__next').querySelectorAll('h2')].map(
+      [...document.querySelector('#__next').querySelectorAll('h2[id]')].map(
         (node: HTMLElement) => ({
           id: node.id,
           label: node.innerText,
