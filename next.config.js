@@ -1,7 +1,25 @@
-const withMDX = require('@next/mdx')({
-  extension: /\.mdx?$/,
-  options: {
-    remarkPlugins: [
+const withNextPluginPreval = require('next-plugin-preval/config')();
+
+module.exports = withNextPluginPreval({
+
+  // Differentiate pages with frontmatter & layout vs. normal MD(X)
+  pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
+
+  swcMinify: true,
+
+  // don't want to fix typescript errors right now...
+  typescript: {
+    ignoreBuildErrors: true,
+  },
+
+  webpack(config) {
+    const defaultRehypePlugins = [
+      require('mdx-prism'),
+      // are ESM only.
+      require('rehype-slug'),
+      require('rehype-autolink-headings'),
+    ];
+    const defaultRemarkPlugins = [
       require('remark-code-import'),
       require('remark-gfm'),
       require('remark-mdx-images'),
@@ -11,17 +29,31 @@ const withMDX = require('@next/mdx')({
           repository: 'aws-amplify/amplify-ui',
         },
       ],
-    ],
-    rehypePlugins: [
-      require('mdx-prism'),
-      require('rehype-slug'),
-      require('rehype-autolink-headings'),
-    ],
-    // If you use `MDXProvider`, uncomment the following line.
-    providerImportSource: "@mdx-js/react",
+    ];
+
+    config.module.rules.push({
+      test: /\.mdx$/,
+      use: [
+        {
+          loader: '@mdx-js/loader',
+          /** @type {import('@mdx-js/loader').Options} */
+          options: {
+            rehypePlugins: defaultRehypePlugins,
+            // Pages have reqiure layout & frontmatter
+            remarkPlugins: defaultRemarkPlugins.concat([
+              // Remove frontmatter from MDX
+              require('remark-frontmatter'),
+              // Extract to `frontmatter` export
+              [
+                require('remark-mdx-frontmatter').remarkMdxFrontmatter,
+                { name: 'frontmatter' },
+              ],
+            ]),
+          },
+        },
+      ],
+    });
+
+    return config;
   },
-})
-module.exports = withMDX({
-  // Append the default value with md extensions
-  pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
-})
+});
