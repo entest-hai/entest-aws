@@ -10,9 +10,9 @@ const sortByLabel = (a: ComponentNavItem, b: ComponentNavItem) =>
 
 export const amplifyComponents: ComponentNavItem[] = [
   {
-    href: '/amplify/theme',
-    label: 'Amplify Theme',
-    body: `Hello Amplify Theme`,
+    href: '/amplify/scss',
+    label: 'Hello SCSS',
+    body: `Hello Style SCSS`,
     platforms: ['react'],
   },
     {
@@ -21,13 +21,42 @@ export const amplifyComponents: ComponentNavItem[] = [
     body: `Hello Amplify Theme`,
     platforms: ['react'],
   },
-      {
-    href: '/amplify/theme',
-    label: 'Amplify Theme',
+  {
+    href: '/amplify/mdx',
+    label: 'Hello MDX',
+    body: `Hello MDX Markdown`,
+    platforms: ['react'],
+  },
+  {
+    href: '/amplify/geo',
+    label: 'Hello Amplify Geo',
+    body: `Hello Amplify Geo`,
+    platforms: ['react'],
+  },
+  {
+    href: '/amplify/auth',
+    label: 'Hello Amplify Auth',
+    body: `Hello Amplify Authentication`,
+    platforms: ['react'],
+  },
+  {
+    href: '/amplify/graphql',
+    label: 'Hello Amplify GraphQL',
     body: `Hello Amplify Theme`,
     platforms: ['react'],
   },
-
+  {
+    href: '/amplify/pubsub',
+    label: 'Hello Amplify PubSub',
+    body: `Hello Amplify PubSub`,
+    platforms: ['react'],
+  },
+  {
+    href: '/amplify/storage',
+    label: 'Hello Amplify Storage',
+    body: `Hello Amplify Storage`,
+    platforms: ['react'],
+  },
 ].sort(sortByLabel); 
 
 export const cdkComponents: ComponentNavItem[] = [
