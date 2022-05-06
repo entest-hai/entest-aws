@@ -1,10 +1,14 @@
 export const meta = {
-  title: 'CI/CD Pipeline for Lambda with ECR and SSM for updating tag',
+  title: 'CI/CD Pipeline for Lambda with ECR and SSM for tag',
 };
 
 import { MyLayoutTest } from './../../components/Layout/MyLayout';
 
-This note shows using SSM parameter in CI/CD for passing ECR image tag from CodeBuild to deployment stacks. So the latest ECR image is used in the latest deployed stack such as a lambda function. The default ecr tag is latest and this might cause CloudFormation think that there is not update after pushing an image to ecr. So, it is better to push image with a tag by build number, **CODEBUILD_RESOLVED_SOURCE_VERSION**, or Git SHA, etc. There are other solutions such as exported variables in CodeBuild, then overrideParameter in deployment stacks. Here SSM is an easy way.
+This note shows using SSM parameter in CI/CD for passing ECR image tag from CodeBuild to deployment stacks. So the latest ECR image is used in the latest deployed stack such as a lambda function.
+
+The default ecr tag is latest and this might cause CloudFormation think that there is not update after pushing an image to ecr. So, it is better to push image with a tag by build number, **CODEBUILD_RESOLVED_SOURCE_VERSION**, or Git SHA, etc.
+
+There are other solutions such as exported variables in CodeBuild, then overrideParameter in deployment stacks. Here SSM is an easy way.
 
 - CodeBuild to build a Docker image, tag, and push to an ecr repository
 - The tag written to SSM (system parameter store)
@@ -96,7 +100,7 @@ const codeBuild = new aws_codebuild.PipelineProject(this, 'CodeBuildProject', {
 create a ssm
 
 ```shell
-aws ssm put-parameter --name 'parameterName' --description 'keep track ecr image tag' --value 'b05517a66933f6fde060efe2ecd78784767f6ce1' --type 'String'
+aws ssm put-parameter --name 'parameterName' --description 'keep track ecr image tag' --value 'b05...' --type 'String'
 ```
 
 get a ssm
@@ -108,11 +112,11 @@ aws ssm get-parameter --name 'parameterName'
 update a ssm
 
 ```shell
-aws ssm put-parameter --name 'parameterName' --type 'String' --value 'b05517a66933f6fde060efe2ecd78784767f6ce1' --overwrite
+aws ssm put-parameter --name 'parameterName' --type 'String' --value 'b05...' --overwrite
 ```
 
 ```shell
-aws ssm put-parameter --name parameterName --type String --value '0a95b18303e05f2de9315bbb385da173398b9661' --overwrite
+aws ssm put-parameter --name 'parameterName' --type String --value '0a9...' --overwrite
 ```
 
 export default ({ children }) => (
