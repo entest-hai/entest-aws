@@ -83,7 +83,7 @@ export const SecondaryNav = (props) => {
 
   console.log('sibar section ', section);
 
-  if (section === '') {
+  if (section === 'cdk') {
     return (
       <>
         <NavLinkComponentsSection

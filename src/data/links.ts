@@ -16,19 +16,19 @@ export const cdkComponents: ComponentNavItem[] = [
     platforms: ['react'],
   },
   {
-    href: '/cdk/cicd-lambda',
+    href: '/cdk/cicd-lambda-api',
     label: 'CI/CD Lambda API',
     body: `Build a CI/CD pipepline to deploy lambda based API, event triggers, SQS queue.`,
     platforms: ['react'],
   },
   {
-    href: '/cdk/cicd-lambda',
+    href: '/cdk/cicd-lambda-s3',
     label: 'CI/CD Lambda S3',
     body: `Build a CI/CD pipepline to deploy lambda based API, event triggers, SQS queue.`,
     platforms: ['react'],
   },
   {
-    href: '/cdk/cicd-lambda',
+    href: '/cdk/cicd-lambda-sqs',
     label: 'CI/CD Lambda SQS',
     body: `Build a CI/CD pipepline to deploy lambda based API, event triggers, SQS queue.`,
     platforms: ['react'],
@@ -40,13 +40,13 @@ export const cdkComponents: ComponentNavItem[] = [
     platforms: ['react'],
   },
   {
-    href: '/cdk/cicd-ecs-fargate',
+    href: '/cdk/cicd-devicefarm',
     label: 'CI/CD Device Farm',
     body: `Experiment ECS Fargate with CDK`,
     platforms: ['react'],
   },
   {
-    href: '/cdk/iot',
+    href: '/cdk/amplify-iot',
     label: 'Little Amplify IoT',
     body: `Build a sample IoT with CDK and Amplify`,
     platforms: ['react'],
