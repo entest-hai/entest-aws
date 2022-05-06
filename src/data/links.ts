@@ -7,6 +7,52 @@ export interface ComponentNavItem {
 const sortByLabel = (a: ComponentNavItem, b: ComponentNavItem) =>
   a.label < b.label ? -1 : a.label > b.label ? 1 : 0;
 
+
+export const cdkComponents: ComponentNavItem[] = [
+  {
+    href: '/cdk/ssm',
+    label: 'System Manager Tunnel',
+    body: `Vscode remote connect to a private EC2`,
+    platforms: ['react'],
+  },
+  {
+    href: '/cdk/cicd-lambda',
+    label: 'CI/CD Lambda API',
+    body: `Build a CI/CD pipepline to deploy lambda based API, event triggers, SQS queue.`,
+    platforms: ['react'],
+  },
+  {
+    href: '/cdk/cicd-lambda',
+    label: 'CI/CD Lambda S3',
+    body: `Build a CI/CD pipepline to deploy lambda based API, event triggers, SQS queue.`,
+    platforms: ['react'],
+  },
+  {
+    href: '/cdk/cicd-lambda',
+    label: 'CI/CD Lambda SQS',
+    body: `Build a CI/CD pipepline to deploy lambda based API, event triggers, SQS queue.`,
+    platforms: ['react'],
+  },
+  {
+    href: '/cdk/cicd-ecs-fargate',
+    label: 'CI/CD ECS Fargate',
+    body: `Experiment ECS Fargate with CDK`,
+    platforms: ['react'],
+  },
+  {
+    href: '/cdk/cicd-ecs-fargate',
+    label: 'CI/CD Device Farm',
+    body: `Experiment ECS Fargate with CDK`,
+    platforms: ['react'],
+  },
+  {
+    href: '/cdk/iot',
+    label: 'Little Amplify IoT',
+    body: `Build a sample IoT with CDK and Amplify`,
+    platforms: ['react'],
+  }
+].sort(sortByLabel);
+
 export const baseComponents: ComponentNavItem[] = [
   {
     href: '/components/view',

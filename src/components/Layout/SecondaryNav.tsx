@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 
 import {
   baseComponents,
+  cdkComponents,
   ComponentNavItem,
   connectedComponents,
   dataDisplayComponents,
@@ -85,26 +86,10 @@ export const SecondaryNav = (props) => {
   if (section === '') {
     return (
       <>
-        <NavLink {...props} href="/theming">
-          Overview
-        </NavLink>
-        <NavLink
-          {...props}
-          platforms={['react', 'vue', 'angular']}
-          href="/theming/responsive"
-        >
-          Responsive
-        </NavLink>
-        <NavLink {...props} href="/theming/dark-mode">
-          Dark mode
-        </NavLink>
-        <NavLink
-          {...props}
-          platforms={['react', 'vue', 'angular']}
-          href="/theming/alternative-styling"
-        >
-          Alternative styling
-        </NavLink>
+        <NavLinkComponentsSection
+          heading={'CDK'}
+          components={cdkComponents}
+        ></NavLinkComponentsSection>
       </>
     );
   }
