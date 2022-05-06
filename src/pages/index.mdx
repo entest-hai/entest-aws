@@ -81,7 +81,7 @@ launch an EC2 in a private subnet
 ```tsx
 const ec2 = new aws_ec2.Instance(this, 'Ec2ConnectVpcEndpointS3', {
   role: role,
-  keyName: 'hai_ec2_t4g_large',
+  keyName: 'KEY_PAIR_NAME',
   vpc: vpc,
   instanceName: 'Ec2ConnectVpcEndpointS3',
   instanceType: aws_ec2.InstanceType.of(
@@ -94,6 +94,45 @@ const ec2 = new aws_ec2.Instance(this, 'Ec2ConnectVpcEndpointS3', {
     subnetType: aws_ec2.SubnetType.PRIVATE,
   },
 });
+```
+
+cloudwatch to monitor and stop ec2 
+```tsx
+// add cloudwatch alarm to turn off after 30 minute idle
+    const alarm = new aws_cloudwatch.Alarm(
+      this,
+      'StopIdleEc2Pub',
+      {
+        alarmName: 'StopIdleEc2Instance',
+        comparisonOperator: aws_cloudwatch.ComparisonOperator.LESS_THAN_THRESHOLD,
+        threshold: 0.99,
+        evaluationPeriods: 6,
+        datapointsToAlarm: 5,
+        metric: new aws_cloudwatch.Metric({
+          namespace: 'AWS/EC2',
+          metricName: 'CPUUtilization',
+          statistic: 'Average',
+          period: Duration.minutes(5),
+          dimensionsMap: {
+            'InstanceId': ec2pub.instanceId
+          }
+        })
+      }
+    )
+
+    // cloudwatch stop ec2
+    alarm.addAlarmAction(
+      new aws_cloudwatch_actions.Ec2Action(aws_cloudwatch_actions.Ec2InstanceAction.STOP)
+    );
+
+    // cloudwatch send sns 
+    alarm.addAlarmAction(
+      new aws_cloudwatch_actions.SnsAction(
+        aws_sns.Topic.fromTopicArn(this,
+                                   'MonitorEc2Topic',
+                                   'arn:aws:sns:ap-southeast-1:IAM_USER_ID:MonitorEc2')
+      )
+    )
 ```
 
 ## Install ssm plugin for local
