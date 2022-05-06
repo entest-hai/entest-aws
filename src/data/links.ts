@@ -76,26 +76,26 @@ export const cdkComponents: ComponentNavItem[] = [
     platforms: ['react'],
   },
   {
-    href: '/cdk/cicd-lambda-api',
-    label: 'CI/CD Lambda API',
+    href: '/cdk/lambda-api',
+    label: 'Lambda Based API',
     body: `Build a CI/CD pipepline to deploy lambda based API, event triggers, SQS queue.`,
     platforms: ['react'],
   },
   {
-    href: '/cdk/cicd-s3-lambda',
-    label: 'CI/CD Lambda S3',
+    href: '/cdk/s3-lambda',
+    label: 'Lambda Trigger S3',
     body: `Build a CI/CD pipepline to deploy lambda based API, event triggers, SQS queue.`,
     platforms: ['react'],
   },
   {
-    href: '/cdk/cicd-sqs-lambda',
-    label: 'CI/CD SQS Lambda',
+    href: '/cdk/sqs-lambda',
+    label: 'SQS Trigger Lambda',
     body: `Build a CI/CD pipepline to deploy lambda based API, event triggers, SQS queue.`,
     platforms: ['react'],
   },
   {
-    href: '/cdk/cicd-ecs-fargate',
-    label: 'CI/CD ECS Fargate',
+    href: '/cdk/ecs-fargate',
+    label: 'ECS Fargate',
     body: `Experiment ECS Fargate with CDK`,
     platforms: ['react'],
   },
@@ -114,7 +114,13 @@ export const cdkComponents: ComponentNavItem[] = [
   {
     href: '/cdk/lambda-graviton-x86',
     label: 'Lambda Graviton',
-    body: `Build a sample IoT with CDK and Amplify`,
+    body: `Benchmark performance between Lambda Graviton and x86`,
+    platforms: ['react'],
+  },
+    {
+    href: '/cdk/cicd-ecr-ssm-tag',
+    label: 'CI/CD ECR SSM Tag',
+    body: `CI/CD Pipeline for Lambda with ECR and SSM for updating tag`,
     platforms: ['react'],
   }
 ].sort(sortByLabel);
