@@ -8,6 +8,15 @@ const sortByLabel = (a: ComponentNavItem, b: ComponentNavItem) =>
   a.label < b.label ? -1 : a.label > b.label ? 1 : 0;
 
 
+export const sagemakerComponents: ComponentNavItem[] = [
+  {
+     href: '/sagemaker/endpoint',
+    label: 'Sagemaker Endpoint',
+    body: `Hello Sagemaker endpoint`,
+    platforms: ['react'],
+  }
+].sort(sortByLabel);
+
 export const amplifyComponents: ComponentNavItem[] = [
   {
     href: '/amplify/scss',

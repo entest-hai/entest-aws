@@ -58,17 +58,17 @@ const NavLink = ({
 
 const Nav = (props) => (
   <Flex as="nav" className="docs-nav" alignItems="center" gap="0" grow="1">
-    <NavLink {...props} href="/">
+    <NavLink {...props} href="/cdk">
       CDK
     </NavLink>
-    <NavLink {...props} href="/">
+    <NavLink {...props} href="/amplify">
       Amplify
+    </NavLink>
+    <NavLink {...props} href="/sagemaker">
+      Sagemaker
     </NavLink>
     <NavLink {...props} href="/">
       Notes
-    </NavLink>
-    <NavLink {...props} href="/">
-      Certifications
     </NavLink>
     <Divider orientation="vertical" />
     <NavLink {...props} isExternal href="https://aws.entest.io/about">
