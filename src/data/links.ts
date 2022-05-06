@@ -82,7 +82,7 @@ export const cdkComponents: ComponentNavItem[] = [
     platforms: ['react'],
   },
   {
-    href: '/cdk/cicd-lambda-s3',
+    href: '/cdk/cicd-s3-lambda',
     label: 'CI/CD Lambda S3',
     body: `Build a CI/CD pipepline to deploy lambda based API, event triggers, SQS queue.`,
     platforms: ['react'],
