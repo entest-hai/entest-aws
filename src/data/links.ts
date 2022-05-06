@@ -88,8 +88,8 @@ export const cdkComponents: ComponentNavItem[] = [
     platforms: ['react'],
   },
   {
-    href: '/cdk/cicd-lambda-sqs',
-    label: 'CI/CD Lambda SQS',
+    href: '/cdk/cicd-sqs-lambda',
+    label: 'CI/CD SQS Lambda',
     body: `Build a CI/CD pipepline to deploy lambda based API, event triggers, SQS queue.`,
     platforms: ['react'],
   },
@@ -108,6 +108,12 @@ export const cdkComponents: ComponentNavItem[] = [
   {
     href: '/cdk/amplify-iot',
     label: 'Little Amplify IoT',
+    body: `Build a sample IoT with CDK and Amplify`,
+    platforms: ['react'],
+  },
+  {
+    href: '/cdk/lambda-graviton-x86',
+    label: 'Benchmark performance between Lambda Graviton and x86',
     body: `Build a sample IoT with CDK and Amplify`,
     platforms: ['react'],
   }
