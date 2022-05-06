@@ -113,7 +113,7 @@ export const cdkComponents: ComponentNavItem[] = [
   },
   {
     href: '/cdk/lambda-graviton-x86',
-    label: 'Benchmark performance between Lambda Graviton and x86',
+    label: 'Lambda Graviton',
     body: `Build a sample IoT with CDK and Amplify`,
     platforms: ['react'],
   }
