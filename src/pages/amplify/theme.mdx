@@ -1,8 +1,8 @@
 export const meta = {
-  title: 'Vscode remote to an private EC2',
+  title: 'Hello Amplify SCSS Theme',
 };
 
-import { MyLayoutTest } from './../components/Layout/MyLayout';
+import { MyLayoutTest } from './../../components/Layout/MyLayout';
 
 # NextJS theme by SCSS and Selection
 
@@ -147,3 +147,7 @@ const HomePage = () => {
 
 export default HomePage;
 ```
+
+export default ({ children }) => (
+  <MyLayoutTest frontmatter={meta}>{children}</MyLayoutTest>
+);
