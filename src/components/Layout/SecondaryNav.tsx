@@ -80,7 +80,9 @@ export const SecondaryNav = (props) => {
   // Extract section from URL (/section/... => section)
   const section = router.pathname.split('/')[1];
 
-  if (section === 'theming') {
+  console.log('sibar section ', section);
+
+  if (section === '') {
     return (
       <>
         <NavLink {...props} href="/theming">
