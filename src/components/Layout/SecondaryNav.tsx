@@ -5,6 +5,8 @@ import { useRouter } from 'next/router';
 import {
   baseComponents,
   cdkComponents,
+  amplifyComponents,
+  sagemakerComponents,
   ComponentNavItem,
   connectedComponents,
   dataDisplayComponents,
@@ -89,6 +91,28 @@ export const SecondaryNav = (props) => {
         <NavLinkComponentsSection
           heading={'CDK'}
           components={cdkComponents}
+        ></NavLinkComponentsSection>
+      </>
+    );
+  }
+
+  if (section === 'amplify') {
+    return (
+      <>
+        <NavLinkComponentsSection
+          heading={'Amplify'}
+          components={amplifyComponents}
+        ></NavLinkComponentsSection>
+      </>
+    );
+  }
+
+  if (section === 'sagemaker') {
+    return (
+      <>
+        <NavLinkComponentsSection
+          heading={'Sagemaker'}
+          components={sagemakerComponents}
         ></NavLinkComponentsSection>
       </>
     );
