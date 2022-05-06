@@ -8,6 +8,28 @@ const sortByLabel = (a: ComponentNavItem, b: ComponentNavItem) =>
   a.label < b.label ? -1 : a.label > b.label ? 1 : 0;
 
 
+export const amplifyComponents: ComponentNavItem[] = [
+  {
+    href: '/amplify/theme',
+    label: 'Amplify Theme',
+    body: `Hello Amplify Theme`,
+    platforms: ['react'],
+  },
+    {
+    href: '/amplify/theme',
+    label: 'Amplify Theme',
+    body: `Hello Amplify Theme`,
+    platforms: ['react'],
+  },
+      {
+    href: '/amplify/theme',
+    label: 'Amplify Theme',
+    body: `Hello Amplify Theme`,
+    platforms: ['react'],
+  },
+
+].sort(sortByLabel); 
+
 export const cdkComponents: ComponentNavItem[] = [
   {
     href: '/cdk/ssm',
