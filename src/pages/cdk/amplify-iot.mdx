@@ -209,6 +209,44 @@ const topicRule = new aws_iot.CfnTopicRule(this, 'TopicRuleDemo', {
 });
 ```
 
+## Init Amplify backend
+
+```shell
+amplify init
+```
+
+add auth cognito
+
+```shell
+amplify add auth
+```
+
+choose user login by email and then push
+
+```shell
+amplify push
+```
+
+take note the aws-export.js to integerate with Amplify UI
+
+## Configure Cognito AuthRole
+
+Follow step 3 [here](https://docs.amplify.aws/lib/pubsub/getting-started/q/platform/js/#step-2-attach-your-policy-to-your-amazon-cognito-identity). Without this, will be error
+
+```json
+errorCode: 8, errorMessage: AMQJS0008I Socket closed.
+```
+
+Attach below policies to the Cognito Authenticated Role
+
+- AWSIoTDataAccess
+- AWSIoTConfigAccess
+
+To locate the AuthRole
+
+- Goto cloudformation console
+- Click the stack and find **AuthRole** in logical ID column
+
 ## Amplify, Cognito and AWS IoT Policy
 
 To allow Amplify (react web app) subscribe to an AWS IoT topic, we need to attach policy to Conigto ID.
@@ -227,13 +265,8 @@ The Cognito ID can be found from the creds log
 - Attach AWS IoT policy to the Cognito ID as following
 
 ```shell
-aws iot attach-policy --policy-name 'PolicyForDemoDevice' --target ap-southeast-1:41f19265-5ecd-4c86-8b34-cc58dee6c2f0
-```
-
-and
-
-```
-aws iot attach-policy --policy-name 'PolicyForDemoDevice' --target ap-southeast-1:2d1afbd5-2d7d-43ec-b906-a40ac2416c10
+aws iot attach-policy --policy-name 'IoTCorePolicyName' --target ap-southeast-1:41f19265-xxx
+aws iot attach-policy --policy-name 'IoTCorePolicyName' --target ap-southeast-1:2d1afbd5-xxx
 ```
 
 export default ({ children }) => (

@@ -61,9 +61,21 @@ export const amplifyComponents: ComponentNavItem[] = [
     platforms: ['react'],
   },
   {
-    href: '/amplify/storage',
-    label: 'Hello Amplify Storage',
-    body: `Hello Amplify Storage`,
+    href: '/amplify/cognito-hosted-ui',
+    label: 'Cognito hosted UI authentication',
+    body: `Cognito hosted UI authentication`,
+    platforms: ['react'],
+  },
+  {
+    href: '/amplify/cognito-admin',
+    label: 'Cognito react admin',
+    body: `Cognito react admin`,
+    platforms: ['react'],
+  },
+  {
+    href: '/amplify/cognito-role-rule',
+    label: 'Cognito fine-granied role based access grant',
+    body: `Cognito fine-granied role based access grant`,
     platforms: ['react'],
   },
 ].sort(sortByLabel); 
@@ -117,10 +129,16 @@ export const cdkComponents: ComponentNavItem[] = [
     body: `Benchmark performance between Lambda Graviton and x86`,
     platforms: ['react'],
   },
-    {
+  {
     href: '/cdk/cicd-ecr-ssm-tag',
     label: 'CI/CD ECR SSM Tag',
     body: `CI/CD Pipeline for Lambda with ECR and SSM for updating tag`,
+    platforms: ['react'],
+  },
+  {
+    href: '/cdk/cicd-cross-account',
+    label: 'CI/CD Cross Account',
+    body: `CI/CD cross acount deploy`,
     platforms: ['react'],
   }
 ].sort(sortByLabel);
