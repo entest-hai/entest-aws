@@ -62,19 +62,19 @@ export const amplifyComponents: ComponentNavItem[] = [
   },
   {
     href: '/amplify/cognito-hosted-ui',
-    label: 'Cognito hosted UI authentication',
+    label: 'Cognito Hosted UI',
     body: `Cognito hosted UI authentication`,
     platforms: ['react'],
   },
   {
     href: '/amplify/cognito-admin',
-    label: 'Cognito react admin',
+    label: 'Cognito Admin Role',
     body: `Cognito react admin`,
     platforms: ['react'],
   },
   {
     href: '/amplify/cognito-role-rule',
-    label: 'Cognito fine-granied role based access grant',
+    label: 'Cognito Role Based',
     body: `Cognito fine-granied role based access grant`,
     platforms: ['react'],
   },
