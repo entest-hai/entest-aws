@@ -82,6 +82,12 @@ export const amplifyComponents: ComponentNavItem[] = [
 
 export const cdkComponents: ComponentNavItem[] = [
   {
+    href: '/cdk/assume-role',
+    label: 'Assume Role',
+    body: `Hello assume role with CDK`,
+    platforms: ['react'],
+  },
+  {
     href: '/cdk/ssm',
     label: 'System Manager Tunnel',
     body: `Vscode remote connect to a private EC2`,
