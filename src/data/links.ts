@@ -81,7 +81,13 @@ export const amplifyComponents: ComponentNavItem[] = [
 ].sort(sortByLabel); 
 
 export const cdkComponents: ComponentNavItem[] = [
-  {
+   {
+    href: '/cdk/custom-resource',
+    label: 'Custom Resource',
+    body: `Create a custom resource`,
+    platforms: ['react'],
+  },
+  { 
     href: '/cdk/assume-role',
     label: 'Assume Role',
     body: `Hello assume role with CDK`,
