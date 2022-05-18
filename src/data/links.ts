@@ -153,7 +153,7 @@ export const cdkComponents: ComponentNavItem[] = [
     platforms: ['react'],
   },
   {
-    href: '/cdk/dyanmodb-stream-lambda',
+    href: '/cdk/dynamodb-stream-lambda',
     label: 'DyanmoDB Stream',
     body: `DynamoDB stream trigger lambda`,
     platforms: ['react'],
