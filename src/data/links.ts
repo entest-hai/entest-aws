@@ -7,14 +7,13 @@ export interface ComponentNavItem {
 const sortByLabel = (a: ComponentNavItem, b: ComponentNavItem) =>
   a.label < b.label ? -1 : a.label > b.label ? 1 : 0;
 
-
 export const sagemakerComponents: ComponentNavItem[] = [
   {
-     href: '/sagemaker/endpoint',
+    href: '/sagemaker/endpoint',
     label: 'Sagemaker Endpoint',
     body: `Hello Sagemaker endpoint`,
     platforms: ['react'],
-  }
+  },
 ].sort(sortByLabel);
 
 export const amplifyComponents: ComponentNavItem[] = [
@@ -24,7 +23,7 @@ export const amplifyComponents: ComponentNavItem[] = [
     body: `Hello Style SCSS`,
     platforms: ['react'],
   },
-    {
+  {
     href: '/amplify/theme',
     label: 'Amplify Theme',
     body: `Hello Amplify Theme`,
@@ -78,16 +77,16 @@ export const amplifyComponents: ComponentNavItem[] = [
     body: `Cognito fine-granied role based access grant`,
     platforms: ['react'],
   },
-].sort(sortByLabel); 
+].sort(sortByLabel);
 
 export const cdkComponents: ComponentNavItem[] = [
-   {
+  {
     href: '/cdk/custom-resource',
     label: 'Custom Resource',
     body: `Create a custom resource`,
     platforms: ['react'],
   },
-  { 
+  {
     href: '/cdk/assume-role',
     label: 'Assume Role',
     body: `Hello assume role with CDK`,
@@ -152,7 +151,19 @@ export const cdkComponents: ComponentNavItem[] = [
     label: 'CI/CD Cross Account',
     body: `CI/CD cross acount deploy`,
     platforms: ['react'],
-  }
+  },
+  {
+    href: '/cdk/dyanmodb-stream-lambda',
+    label: 'DyanmoDB Stream',
+    body: `DynamoDB stream trigger lambda`,
+    platforms: ['react'],
+  },
+  {
+    href: '/cdk/dynamodb-index',
+    label: 'DynamoDB Index',
+    body: `DynamoDB global secondary index`,
+    platforms: ['react'],
+  },
 ].sort(sortByLabel);
 
 export const baseComponents: ComponentNavItem[] = [
