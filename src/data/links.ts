@@ -170,6 +170,12 @@ export const cdkComponents: ComponentNavItem[] = [
     body: `CloudFront S3 host static web`,
     platforms: ['react'],
   },
+  {
+    href: '/cdk/waf-cloudfront',
+    label: 'WAF and CloudFront',
+    body: `WAF and CloudFront defense your page`,
+    platforms: ['react'],
+  },
 ].sort(sortByLabel);
 
 export const baseComponents: ComponentNavItem[] = [
