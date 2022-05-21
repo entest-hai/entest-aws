@@ -164,6 +164,12 @@ export const cdkComponents: ComponentNavItem[] = [
     body: `DynamoDB global secondary index`,
     platforms: ['react'],
   },
+  {
+    href: '/cdk/cloudfront-s3',
+    label: 'CloudFront S3',
+    body: `CloudFront S3 host static web`,
+    platforms: ['react'],
+  },
 ].sort(sortByLabel);
 
 export const baseComponents: ComponentNavItem[] = [
