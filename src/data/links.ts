@@ -176,6 +176,12 @@ export const cdkComponents: ComponentNavItem[] = [
     body: `WAF and CloudFront defense your page`,
     platforms: ['react'],
   },
+  {
+    href: '/cdk/route-53',
+    label: 'route-53',
+    body: `Getting started with route 53`,
+    platforms: ['react'],
+  }
 ].sort(sortByLabel);
 
 export const baseComponents: ComponentNavItem[] = [
