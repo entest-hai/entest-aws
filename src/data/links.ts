@@ -77,6 +77,12 @@ export const amplifyComponents: ComponentNavItem[] = [
     body: `Cognito fine-granied role based access grant`,
     platforms: ['react'],
   },
+  {
+    href: '/amplify/aurora',
+    label: 'Aurora',
+    body: `Highly availability with ALB, ASG, and Aurora`,
+    platforms: ['react'],
+  },
 ].sort(sortByLabel);
 
 export const cdkComponents: ComponentNavItem[] = [
