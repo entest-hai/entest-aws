@@ -183,7 +183,7 @@ export const cdkComponents: ComponentNavItem[] = [
     platforms: ['react'],
   },
   {
-    href: '/amplify/aurora',
+    href: '/cdk/aurora',
     label: 'Aurora',
     body: `Highly availability with ALB, ASG, and Aurora`,
     platforms: ['react'],
