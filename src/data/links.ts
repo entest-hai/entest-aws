@@ -76,13 +76,7 @@ export const amplifyComponents: ComponentNavItem[] = [
     label: 'Cognito Role Based',
     body: `Cognito fine-granied role based access grant`,
     platforms: ['react'],
-  },
-  {
-    href: '/amplify/aurora',
-    label: 'Aurora',
-    body: `Highly availability with ALB, ASG, and Aurora`,
-    platforms: ['react'],
-  },
+  }
 ].sort(sortByLabel);
 
 export const cdkComponents: ComponentNavItem[] = [
@@ -187,7 +181,13 @@ export const cdkComponents: ComponentNavItem[] = [
     label: 'route-53',
     body: `Getting started with route 53`,
     platforms: ['react'],
-  }
+  },
+  {
+    href: '/amplify/aurora',
+    label: 'Aurora',
+    body: `Highly availability with ALB, ASG, and Aurora`,
+    platforms: ['react'],
+  },
 ].sort(sortByLabel);
 
 export const baseComponents: ComponentNavItem[] = [
