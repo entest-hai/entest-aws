@@ -188,6 +188,12 @@ export const cdkComponents: ComponentNavItem[] = [
     body: `Highly availability with ALB, ASG, and Aurora`,
     platforms: ['react'],
   },
+  {
+    href: '/cdk/cloudfront-waf',
+    label: 'CloudFront And Waf',
+    body: ' Denfense CloudFront Static Web',
+    platforms: ['react'],
+  }
 ].sort(sortByLabel);
 
 export const baseComponents: ComponentNavItem[] = [
