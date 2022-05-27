@@ -1,4 +1,5 @@
 import * as React from 'react';
+import Head from 'next/head';
 import NextLink from 'next/link';
 import {
   Button,
@@ -114,6 +115,14 @@ export const Header = ({ platform, colorMode, setColorMode }) => {
   const [expanded, setExpanded] = React.useState(false);
   return (
     <>
+    <Head>
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <meta name="description" content="entest homepage" />
+      <meta name="author" content="entest" />
+      <meta name="author" content="entest" />
+      <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+      <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    </Head>
       <header className={`docs-header ${expanded ? 'expanded' : ''}`}>
         <Button
           className="docs-header-menu-button"
