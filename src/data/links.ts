@@ -193,6 +193,12 @@ export const cdkComponents: ComponentNavItem[] = [
     label: 'CloudFront And Waf',
     body: ' Denfense CloudFront Static Web',
     platforms: ['react'],
+  },
+  {
+    href: '/cdk/api-gateway-lambda',
+    label: 'API Gateway and Lambda Integration',
+    body: 'API Gateway and Lambda Integration',
+    platforms: ['react'],
   }
 ].sort(sortByLabel);
 
