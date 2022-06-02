@@ -196,7 +196,7 @@ export const cdkComponents: ComponentNavItem[] = [
   },
   {
     href: '/cdk/api-gateway-lambda',
-    label: 'API Gateway and Lambda Integration',
+    label: 'API Gateway and Lambda',
     body: 'API Gateway and Lambda Integration',
     platforms: ['react'],
   }
