@@ -199,7 +199,14 @@ export const cdkComponents: ComponentNavItem[] = [
     label: 'API Gateway and Lambda',
     body: 'API Gateway and Lambda Integration',
     platforms: ['react'],
-  }
+  },
+  {
+    href: '/cdk/dax-dynamodb',
+    label: 'DAX DynamoDB',
+    body: 'DAX DynamoDB',
+    platforms: ['react'],
+  },
+  
 ].sort(sortByLabel);
 
 export const baseComponents: ComponentNavItem[] = [
