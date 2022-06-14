@@ -212,6 +212,12 @@ export const cdkComponents: ComponentNavItem[] = [
     body: 'ElastiCache for Redis',
     platforms: ['react'],
   },
+  {
+    href: '/cdk/microsoft-sql-to-rds-sql',
+    label: 'Microsoft SQL to RDS SQL',
+    body: 'Microsoft SQL to RDS SQL',
+    platforms: ['react'],
+  },
   
 ].sort(sortByLabel);
 
