@@ -206,6 +206,12 @@ export const cdkComponents: ComponentNavItem[] = [
     body: 'DAX DynamoDB',
     platforms: ['react'],
   },
+  {
+    href: '/cdk/elasticache-redis',
+    label: 'ElastiCache for Redis',
+    body: 'ElastiCache for Redis',
+    platforms: ['react'],
+  },
   
 ].sort(sortByLabel);
 
