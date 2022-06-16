@@ -224,6 +224,12 @@ export const cdkComponents: ComponentNavItem[] = [
     body: 'Transit Gateway Peering',
     platforms: ['react'],
   },
+  {
+    href: '/cdk/transit-gateway-crouter',
+    label: 'Transit Gateway Central Router',
+    body: 'Transit Gateway Central Router',
+    platforms: ['react'],
+  },
   
 ].sort(sortByLabel);
 
