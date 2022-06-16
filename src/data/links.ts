@@ -218,6 +218,12 @@ export const cdkComponents: ComponentNavItem[] = [
     body: 'Microsoft SQL to RDS SQL',
     platforms: ['react'],
   },
+  {
+    href: '/cdk/transit-gateway-peering',
+    label: 'Transit Gateway Peering',
+    body: 'Transit Gateway Peering',
+    platforms: ['react'],
+  },
   
 ].sort(sortByLabel);
 
