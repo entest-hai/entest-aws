@@ -76,7 +76,7 @@ export const amplifyComponents: ComponentNavItem[] = [
     label: 'Cognito Role Based',
     body: `Cognito fine-granied role based access grant`,
     platforms: ['react'],
-  }
+  },
 ].sort(sortByLabel);
 
 export const cdkComponents: ComponentNavItem[] = [
@@ -230,7 +230,12 @@ export const cdkComponents: ComponentNavItem[] = [
     body: 'Transit Gateway Central Router',
     platforms: ['react'],
   },
-  
+  {
+    href: '/cdk/transit-gateway-simualted-on-prem',
+    label: 'Transit Gateway and Simulated On-Prem',
+    body: 'Transit Gateway and Simulated On-Prem',
+    platforms: ['react'],
+  },
 ].sort(sortByLabel);
 
 export const baseComponents: ComponentNavItem[] = [
