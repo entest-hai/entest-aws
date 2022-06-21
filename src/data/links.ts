@@ -236,6 +236,12 @@ export const cdkComponents: ComponentNavItem[] = [
     body: 'Transit Gateway and Simulated On-Prem',
     platforms: ['react'],
   },
+  {
+    href: '/cdk/redis-dynamodb',
+    label: 'Elastic Cache Redis and DynamoDB',
+    body: 'Elastic Cache Redis and DynamoDB',
+    platforms: ['react'],
+  },
 ].sort(sortByLabel);
 
 export const baseComponents: ComponentNavItem[] = [

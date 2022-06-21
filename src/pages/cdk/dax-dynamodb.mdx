@@ -4,7 +4,9 @@ export const meta = {
 
 import { MyLayoutTest } from './../../components/Layout/MyLayout';
 
+
 [Customers: Tinder, Cannon, Careem](https://aws.amazon.com/dynamodb/dax/)
+
 
 [What use cases/When to use?](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DAX.html) 
 - DynamoDB 
@@ -23,7 +25,10 @@ References:
 
 
 ## Architecture 
-![dax_high_level e4af7cc27485497eff5699cdf22a9502496cba38](https://user-images.githubusercontent.com/20411077/173214194-f539fe34-638a-4ad0-b1e7-16dc7dfef642.png)
+
+![aws_devops-Expriment drawio(3)](https://user-images.githubusercontent.com/20411077/174743120-a5404357-b6af-48f2-b365-6a0933857c07.png)
+
+
 ![dax_performance](https://user-images.githubusercontent.com/20411077/173296706-6ad579f8-9a89-4bc7-bd37-313b6cacfa49.png)
 
 
@@ -138,6 +143,34 @@ create a DAX cluster
   });
 ```
 
+## DAX Python Client 
+```python
+# dax client 
+dax = amazondax.AmazonDaxClient.resource(endpoint_url=DAX_ENDPOINT)
+# table  
+table = dax.Table(table_name)
+```
+get item by primary key 
+```python
+ table.get_item(
+      Key={"UserId": user_id}
+    )
+```
+write an item to table 
+```python
+table.put_item(
+              Item={
+                  'UserId': str(uuid.uuid1()),
+                  "UserName": names.get_full_name(),
+                  'GameTitle': game_title,
+                  'Score': random.randint(1000, 6000),
+                  'Wins': random.randint(0, 100),
+                  'Losses': random.randint(5, 50),
+                  'CreatedTime': int(datetime.datetime.now().timestamp() * 1000)
+              }
+          )
+```
+
 ## DAX Client Performance Check 
 get table [amazondax python client](https://pypi.org/project/amazon-dax-client/) 
 ```python
@@ -192,6 +225,7 @@ def get_items_by_primary_key(table_name: str, mode='dax', no_user=100):
   # return 
   return {"latencies": latencies[2:], "items": items[2:]}
 ```
+
 
 ## DynamoDB Table and Prepare Data 
 ```python
@@ -265,6 +299,7 @@ def write_table_thread(table_name: str, mode='dax') -> None:
     for k in range(1, NUM_THREAD):
       executor.submit(write_table, TABLE_NAME)
 ```
+
 
 
 export default ({ children }) => (
