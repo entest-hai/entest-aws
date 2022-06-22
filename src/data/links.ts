@@ -242,6 +242,12 @@ export const cdkComponents: ComponentNavItem[] = [
     body: 'Elastic Cache Redis and DynamoDB',
     platforms: ['react'],
   },
+  {
+    href: '/cdk/microsoft-sql-aurora-migration',
+    label: 'Microsoft SQL to Aurora MySQL Migration',
+    body: 'Microsoft SQL to Aurora MySQL Migration',
+    platforms: ['react'],
+  },
 ].sort(sortByLabel);
 
 export const baseComponents: ComponentNavItem[] = [
