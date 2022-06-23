@@ -116,7 +116,7 @@ def fetch_restaurant_summary(restaurant_name):
     if restaurant:
         return restaurant
     # mis-cache and fetch from db
-    restaurant = fetch_restaurant_summary_from_local(restaurant_name)
+    restaurant = fetch_restaurant_summary_from_db_upload_cache(restaurant_name)
     # write to cache 
     store_restaurant_summary_in_cache(restaurant)
     # print response 
