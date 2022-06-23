@@ -4,13 +4,14 @@ export const meta = {
 
 import { MyLayoutTest } from './../../components/Layout/MyLayout';
 
-
+# ElasticCache for Redis 
 [Reference - Deploy Amazon ElasticCache for Redis using AWS CDK](https://aws.amazon.com/blogs/database/deploy-amazon-elasticache-for-redis-using-aws-cdk/)
 
 
 Customer stories  
 - [Impatient web users 100ms means 1%$ sale loss](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/elasticache-use-cases.html)
 - [Tinder billions matches daily](https://aws.amazon.com/blogs/database/building-resiliency-at-scale-at-tinder-with-amazon-elasticache/?pg=ln&sec=c)
+- [Elasticache redis customers](https://aws.amazon.com/elasticache/redis/customers/)
 - [AppSync](https://docs.aws.amazon.com/appsync/latest/devguide/enabling-caching.html)
 - [Game session](https://aws.amazon.com/blogs/gametech/building-a-presence-api-using-aws-appsync-aws-lambda-amazon-elasticache-and-amazon-eventbridge/)
 
@@ -22,10 +23,9 @@ Performance
 - [quotas](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/quota-limits.html)
 - [best best practice](https://d0.awsstatic.com/whitepapers/performance-at-scale-with-amazon-elasticache.pdf)
   - [Node type: M5 or R5](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/nodes-select-size.html)
-  - Launch in a private subnet 
-  - Security group (Redis 6739, Memcached 11211)
-  - Encryption TSL/SSL 
-  - [Lazy vs write-through](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Strategies.html#Strategies.WriteThrough)
+  - Launch in a private subnet, security group, encryption TSL/SSL
+  - [redis cahing strategies](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Strategies.html#Strategies.WriteThrough)
+  - [read-through/write-through dax](https://aws.amazon.com/blogs/database/amazon-dynamodb-accelerator-dax-a-read-throughwrite-through-cache-for-dynamodb/)
 
 ## Architecture 
 
@@ -323,6 +323,7 @@ def initialize_database(configs):
     """.format(configs['dataset_file'])
     mysql_execute_command(sql_command, configs['db_host'], configs['db_username'], configs['db_password'])
 ```
+
 
 export default ({ children }) => (
   <MyLayoutTest frontmatter={meta}>{children}</MyLayoutTest>
