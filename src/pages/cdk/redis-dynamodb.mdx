@@ -124,6 +124,18 @@ def fetch_restaurant_summary(restaurant_name):
     return restaurant
 ```
 
+write to cache 
+```python 
+def store_restaurant_summary_in_cache(restaurant):
+    """
+    store to cache
+    """
+    key = restaurant.name
+    r.set(key, json.dumps(restaurant, cls=ObjectEncoder), ex=900)
+
+    return True
+```
+
 ## DynamoDB Table 
 create a restaurant table with global secondary index 
 ```python
@@ -166,7 +178,7 @@ except Exception as e:
     print(e)
 ```
 
-bach writing the table 
+batch writing the table 
 ```python
 import json
 import boto3
