@@ -4,13 +4,19 @@ export const meta = {
 
 import { MyLayoutTest } from './../../components/Layout/MyLayout';
 
+## Architecture 
+
+![aws_devops-Expriment drawio](https://user-images.githubusercontent.com/20411077/174738633-08a093cf-f99e-404e-934c-6efcb0f01e35.png)
+
+![redis-ddb-performance](https://user-images.githubusercontent.com/20411077/174738791-b077c658-33e7-4bd8-a2a4-8fcc4cc5b041.png)
+
 
 [Reference - Deploy Amazon ElasticCache for Redis using AWS CDK](https://aws.amazon.com/blogs/database/deploy-amazon-elasticache-for-redis-using-aws-cdk/)
-
 
 Customer stories  
 - [Impatient web users 100ms means 1%$ sale loss](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/elasticache-use-cases.html)
 - [Tinder billions matches daily](https://aws.amazon.com/blogs/database/building-resiliency-at-scale-at-tinder-with-amazon-elasticache/?pg=ln&sec=c)
+- [Elasticache redis customers](https://aws.amazon.com/elasticache/redis/customers/)
 - [AppSync](https://docs.aws.amazon.com/appsync/latest/devguide/enabling-caching.html)
 - [Game session](https://aws.amazon.com/blogs/gametech/building-a-presence-api-using-aws-appsync-aws-lambda-amazon-elasticache-and-amazon-eventbridge/)
 
@@ -18,20 +24,20 @@ When to use?
 - Speed and expense - expensive queries 
 - Data and access pattern - relatively static and frequent accessed - personal profile
 
-Performance
+Best practices
+- [Re-invent 2020 Damon LaCaille 7:48](https://www.youtube.com/watch?v=_4SkEy6r-C4)
 - [quotas](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/quota-limits.html)
-- [best best practice](https://d0.awsstatic.com/whitepapers/performance-at-scale-with-amazon-elasticache.pdf)
-  - [Node type: M5 or R5](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/nodes-select-size.html)
-  - Launch in a private subnet 
-  - Security group (Redis 6739, Memcached 11211)
-  - Encryption TSL/SSL 
-  - [Lazy vs write-through](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Strategies.html#Strategies.WriteThrough)
-
-## Architecture 
-
-![aws_devops-Expriment drawio](https://user-images.githubusercontent.com/20411077/174738633-08a093cf-f99e-404e-934c-6efcb0f01e35.png)
-
-![redis-ddb-performance](https://user-images.githubusercontent.com/20411077/174738791-b077c658-33e7-4bd8-a2a4-8fcc4cc5b041.png)
+- [replication group or cluster](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/WhatIs.Terms.html)
+- [elastic cache re-invent 2021 8:22](https://www.youtube.com/watch?v=_4SkEy6r-C4)
+  - cluster-mode, add replica - read capacity, add shards - write capacity
+  - cloudwatch metric & alarm, sns
+  - two read replica node per shard, primary nodes accross azs, failover primary
+  -[IAM auth](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/IAM.Overview.html#IAM.Overview.ManagingAccess)
+- [white paper](https://d0.awsstatic.com/whitepapers/performance-at-scale-with-amazon-elasticache.pdf)
+- [node type: M5 or R5](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/nodes-select-size.html)
+- Private subnet, security group, encryption TSL/SSL 
+- [redis cahing strategies](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Strategies.html#Strategies.WriteThrough)
+- [read-through/write-through dax](https://aws.amazon.com/blogs/database/amazon-dynamodb-accelerator-dax-a-read-throughwrite-through-cache-for-dynamodb/)
 
 
 ## Redis Cluster Stack
@@ -116,15 +122,14 @@ def fetch_restaurant_summary(restaurant_name):
     if restaurant:
         return restaurant
     # mis-cache and fetch from db
-    restaurant = fetch_restaurant_summary_from_db_upload_cache(restaurant_name)
+    restaurant = fetch_restaurant_summary_from_db_update_cache(restaurant_name)
     # write to cache 
     store_restaurant_summary_in_cache(restaurant)
     # print response 
     print("Using uncached result!")
     return restaurant
 ```
-
-write to cache 
+write to cache
 ```python 
 def store_restaurant_summary_in_cache(restaurant):
     """

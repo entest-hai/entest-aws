@@ -4,7 +4,7 @@ export const meta = {
 
 import { MyLayoutTest } from './../../components/Layout/MyLayout';
 
- Architecture 
+## Architecture 
 
 ![aws_devops-ica drawio](https://user-images.githubusercontent.com/20411077/173564514-85fba849-5f04-4cd2-ba29-eab47b8b6e0e.png)
 
@@ -31,6 +31,8 @@ Essential concepts
 - [AWS SCT](https://aws.amazon.com/dms/schema-conversion-tool/)
 
 Best practices 
+- [DMS Re-invent 2019 John Winford 29:30](https://www.youtube.com/watch?v=kJs9U4ys5FE)
+- [AWS Database Migration Workshop](https://catalog.us-east-1.prod.workshops.aws/workshops/77bdff4f-2d9e-4d68-99ba-248ea95b3aca/en-US/sqlserver-aurora)
 - [continuous database replication](https://aws.amazon.com/blogs/database/continuous-database-replication-using-aws-dms-to-migrate-from-oracle-to-amazon-aurora/)
 - [Migration and modernization strategies](https://aws.amazon.com/blogs/modernizing-with-aws/migration-modernization-strategies-sql-on-aws/)
 - [need help](https://aws.amazon.com/products/databases/migrations/)
@@ -51,7 +53,7 @@ const ec2MySqlSecurityGroup = new aws_ec2.SecurityGroup(
 ec2MySqlSecurityGroup.addIngressRule(
   // RDP access
   aws_ec2.Peer.anyIpv4(),
-  aws_ec2.Port.tcp(1521)
+  aws_ec2.Port.tcp(3389)
 );
 
 ec2MySqlSecurityGroup.addIngressRule(
@@ -292,7 +294,7 @@ this,
         "rule-name": "200548593",
         "object-locator": {
           "schema-name": "%",
-          "table-name": "%",
+          "table-name": "player",
         },
         "rule-action": "include",
         filters: [],
@@ -336,6 +338,22 @@ export class DmsVpcRole extends Stack {
 
 ## SqlServerEngineVersion
 Need to go to aws console to double check which version is supportd. The auto suggested list from CDK does not work. 
+
+## SQL Basic Queries 
+```sql
+SELECT COUNT(*) 
+  FROM [dms_sample].[dbo].[person]
+```
+```sql
+SELECT  TOP (1000) * FROM [dms_sample].[dbo].[player]
+```
+```sql
+SELECT TOP (1000) [ID]
+      ,[full_name]
+      ,[last_name]
+      ,[first_name]
+  FROM [dms_sample].[dbo].[person]
+```
 
 
 export default ({ children }) => (
