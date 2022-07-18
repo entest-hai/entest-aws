@@ -248,6 +248,18 @@ export const cdkComponents: ComponentNavItem[] = [
     body: 'Microsoft SQL to Aurora MySQL Migration',
     platforms: ['react'],
   },
+  {
+    href: '/cdk/hello-ecs-flask',
+    label: 'Hello AWS ECS with a FLask Web App',
+    body: 'Hello AWS ECS with a Flask Web App',
+    platforms: ['react'],
+  },
+  {
+    href: '/cdk/cicd-integration-test',
+    label: 'CI/CD Pipeline with Integration Test',
+    body: 'CI/CD Pipeline with Integration Test',
+    platforms: ['react'],
+  },
 ].sort(sortByLabel);
 
 export const baseComponents: ComponentNavItem[] = [
